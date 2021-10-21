@@ -7,7 +7,6 @@ import javax.persistence.EmbeddedId;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -15,22 +14,21 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
-public class Movement {
+public class AnnualLeave {
 
     @AllArgsConstructor
     @NoArgsConstructor
     @EqualsAndHashCode
     @Embeddable
-    public class MovementID implements Serializable{
-        private Long movId;
+    public class AnnualLeaveId implements Serializable{
+        private Long annualId;
+        private Long movementId;
         private Long userId;
     }
 
-    @EmbeddedId //compound id
-    private MovementID id;
-    private Date dateStart;
-    private Date dateEnd;
-    private BigDecimal period;
-    private Occurrence occurrence;
-    private Calendar calendar;
+    @EmbeddedId
+    private AnnualLeaveId id;
+    private Date workDate;
+    private BigDecimal hourAmount;
+    private BigDecimal hourBalance;
 }
