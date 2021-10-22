@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -14,6 +16,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class AnnualLeave {
 
     @AllArgsConstructor
@@ -25,7 +28,7 @@ public class AnnualLeave {
         private Long movementId;
         private Long userId;
     }
-
+    @Id
     @EmbeddedId
     private AnnualLeaveId id;
     private Date workDate;

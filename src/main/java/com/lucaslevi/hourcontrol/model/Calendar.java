@@ -2,7 +2,13 @@ package com.lucaslevi.hourcontrol.model;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.lucaslevi.hourcontrol.model.TypeDate;
+
+
 import java.util.Date;
 
 @Getter
@@ -11,9 +17,12 @@ import java.util.Date;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Calendar {
+    @Id
     private Long id;
-    private DateTipe dateTipe;
+    @ManyToOne
+    private TypeDate dateType;
     private String description;
     private Date date;
 

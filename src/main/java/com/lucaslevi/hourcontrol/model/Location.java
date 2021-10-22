@@ -2,7 +2,9 @@ package com.lucaslevi.hourcontrol.model;
 
 import lombok.*;
 
-import javax.persistence.OneToMany;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Getter
 @Setter
@@ -10,9 +12,11 @@ import javax.persistence.OneToMany;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Location {
+    @Id
     private Long id;
-    @OneToMany
+    @ManyToOne
     private AcessLevel acessLevel;
     private String description;
 }

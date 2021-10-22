@@ -2,8 +2,7 @@ package com.lucaslevi.hourcontrol.model;
 
 import lombok.*;
 
-import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -15,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Builder
+@Entity
 public class Movement {
 
     @AllArgsConstructor
@@ -26,11 +26,14 @@ public class Movement {
         private Long userId;
     }
 
+    @Id
     @EmbeddedId //compound id
     private MovementID id;
     private Date dateStart;
     private Date dateEnd;
     private BigDecimal period;
+    @ManyToOne
     private Occurrence occurrence;
+    @ManyToOne
     private Calendar calendar;
 }
