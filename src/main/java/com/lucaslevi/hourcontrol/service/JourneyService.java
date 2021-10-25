@@ -28,4 +28,12 @@ public class JourneyService {
     public Optional<WorkJourney> findById(Long id) {
         return repository.findById(id);
     }
+
+    public WorkJourney update(WorkJourney journey){
+        return repository.save(journey);
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
+    }
 }

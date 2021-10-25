@@ -29,6 +29,4 @@ public class WorkJourneyController {
     public ResponseEntity getJourneyById(@PathVariable("journeyid") Long id){
         return ResponseEntity.ok().body(journeyService.findById(id));
     }
-
-
 }
