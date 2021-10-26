@@ -29,4 +29,20 @@ public class WorkJourneyController {
     public ResponseEntity getJourneyById(@PathVariable("journeyid") Long id){
         return ResponseEntity.ok().body(journeyService.findById(id));
     }
+
+    @PutMapping
+    public WorkJourney updateJourney(@RequestBody WorkJourney workJourney){
+        return journeyService.update(workJourney);
+    }
+
+    @GetMapping("/delete/{journeyid}")
+    public void deleteJourney(@PathVariable("journeyid") Long id){
+        try{
+            journeyService.delete(id);
+            ResponseEntity.ok();
+        } catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
+    }
 }
