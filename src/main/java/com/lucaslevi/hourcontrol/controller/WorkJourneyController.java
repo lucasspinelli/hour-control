@@ -35,7 +35,7 @@ public class WorkJourneyController {
         return journeyService.update(workJourney);
     }
 
-    @GetMapping("/delete/{journeyid}")
+    @DeleteMapping("{journeyid}")
     public void deleteJourney(@PathVariable("journeyid") Long id){
         try{
             journeyService.delete(id);
